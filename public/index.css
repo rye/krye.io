@@ -19,6 +19,8 @@ header > .name {
 	font-size: 3.5em;
 }
 
+header > .name span.aux { color: var(--color-primary-dark); }
+
 header > .tagline {
 	font-family: 'Fira Sans', sans-serif;
 	font-weight: bold;
