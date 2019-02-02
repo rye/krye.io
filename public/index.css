@@ -53,3 +53,8 @@ header > .tagline > span:last-child:after {
 		display: none;
 	}
 }
+
+section {
+	padding: 0 1em 0 1em;
+	margin: 2em auto 2em auto;
+}
