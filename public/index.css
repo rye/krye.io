@@ -60,6 +60,7 @@ header > .tagline > span:last-child:after {
 }
 
 section {
+	background-color: var(--section-bg-primary);
 	padding: 0 var(--section-right-padding) 0 var(--section-left-padding);
 	margin: 2em auto 2em auto;
 }
