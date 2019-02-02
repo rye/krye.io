@@ -79,3 +79,5 @@ section {
 	margin: 1em 2em 1em 2em;
 	font-size: 90%;
 }
+
+.example p.description { font-style: italic; }
