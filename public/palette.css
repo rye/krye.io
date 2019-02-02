@@ -16,8 +16,8 @@
 	--color-e: #eee;
 	--color-f: #fff;
 
-	--section-bg-primary: var(--color-f);
-	--section-bg-secondary: var(--color-a);
+	--section-bg-primary: var(--color-e);
+	--section-bg-secondary: var(--color-d);
 	--section-fg-primary: var(--color-2);
 	--section-fg-primary-lighter: var(--color-4);
 	--section-fg-secondary: var(--color-3);
