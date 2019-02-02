@@ -4,6 +4,13 @@ body {
 	font-family: 'Fira Sans', sans-serif;
 }
 
+header {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+}
+
 header > .name {
 	font-family: 'Alfa Slab One', serif;
 	font-size: 3.5em;
