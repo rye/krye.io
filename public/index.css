@@ -76,6 +76,7 @@ section {
 #projects > p > b { color: var(--color-secondary-1-dark); }
 
 .example {
+	display: grid;
 	margin: 1em 2em 1em 2em;
 	font-size: 90%;
 }
@@ -126,3 +127,19 @@ section {
 	max-width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+	.example,
+	.example.e31,
+	.example.e4,
+	.example.e13 {
+		grid-template-columns: auto;
+	}
+
+	.example > h1 > .links {
+		margin-right: 0;
+	}
+
+	.example > .image, img#aao-screenshot {
+		display: none;
+	}
+}
