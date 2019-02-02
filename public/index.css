@@ -61,20 +61,31 @@ header > .tagline > span:last-child:after {
 }
 
 section {
+	display: flex;
+	flex-direction: column;
 	background-color: var(--section-bg-primary);
-	padding: 0 var(--section-right-padding) 0 var(--section-left-padding);
-	margin: 2em auto 2em auto;
+	align-items: center;
+	justify-content: center;
+	padding: var(--section-padding);
+}
+
+section > .inner {
+	flex: 1 1 auto;
 }
 
 @media screen and (min-width: 768px) {
-	section {
+	section > .inner {
 		min-width: calc(768px - (var(--section-left-padding) + var(--section-right-padding)));
-		max-width: 50vw;
+		max-width: 50%;
 	}
 }
 
-#about > p > b { color: var(--color-secondary-0-dark); }
-#projects > p > b { color: var(--color-secondary-1-dark); }
+#about .inner > p > b { color: var(--color-secondary-0-dark); }
+#projects .inner > p > b { color: var(--color-secondary-1-dark); }
+
+section:nth-of-type(2) {
+	background-color: var(--section-bg-secondary);
+}
 
 .example {
 	display: grid;
