@@ -85,3 +85,7 @@ section {
 .example.e31 { grid-template-columns: 3fr 1fr; }
 .example.e4 { grid-template-columns: 4fr; }
 .example.e13 { grid-template-columns: 1fr 3fr; }
+
+.example:first-of-type { margin-top: 2em; }
+.example:last-of-type { margin-bottom: 2em; }
+.example { grid-row-gap: 0em; grid-column-gap: 1em; }
