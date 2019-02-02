@@ -71,3 +71,6 @@ section {
 		max-width: 50vw;
 	}
 }
+
+#about > p > b { color: var(--color-secondary-0-dark); }
+#projects > p > b { color: var(--color-secondary-1-dark); }
