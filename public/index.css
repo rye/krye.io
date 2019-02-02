@@ -68,22 +68,15 @@ header > .tagline > span:last-child:after {
 }
 
 section {
-	display: flex;
-	flex-direction: column;
 	background-color: var(--section-bg-primary);
 	align-items: center;
 	justify-content: center;
 	padding: var(--section-padding);
 }
 
-section > .inner {
-	flex: 1 1 auto;
-}
-
 @media screen and (min-width: 768px) {
-	section > .inner {
-		min-width: calc(768px - (var(--section-left-padding) + var(--section-right-padding)));
-		max-width: 50%;
+	section {
+		padding: var(--section-padding) calc((100vw - 768px) / 2 + var(--section-right-padding)) var(--section-padding) calc((100vw - 768px) / 2 + var(--section-left-padding));
 	}
 }
 
