@@ -1,5 +1,6 @@
 :root {
-	--section-left-padding: 1em;
+	--section-padding: 1em;
+	--section-left-padding: var(--section-padding);
 	--section-right-padding: var(--section-left-padding);
 }
 
