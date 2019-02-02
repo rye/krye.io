@@ -89,3 +89,7 @@ section {
 .example:first-of-type { margin-top: 2em; }
 .example:last-of-type { margin-bottom: 2em; }
 .example { grid-row-gap: 0em; grid-column-gap: 1em; }
+
+.example > h1 { align-self: flex-end; }
+.example > .left { grid-column: 1; }
+.example > .right { grid-column: 2; }
