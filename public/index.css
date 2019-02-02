@@ -91,10 +91,38 @@ section {
 .example { grid-row-gap: 0em; grid-column-gap: 1em; }
 
 .example > h1 { align-self: flex-end; }
-.example > .text {
-	align-self: flex-start;
-	text-align: justify;
-}
+.example > .text { align-self: flex-start; }
 
 .example > .left { grid-column: 1; }
 .example > .right { grid-column: 2; }
+
+.example > h1 { display: flex; flex-direction: row; justify-content: space-between; }
+.example > h1 > * { flex: 0 1 auto; }
+
+.example > h1 > .links {
+	font-weight: 500;
+	color: var(--section-fg-primary-lighter);
+}
+
+.example > h1 > .links a { padding-right: 1em; }
+.example > h1 > .links a:last-child { padding-right: 0; }
+
+.example > .image {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	grid-row: span 2;
+}
+
+.example > .text {
+	display: flex;
+	text-align: justify;
+	flex-direction: column;
+	justify-content: flex-start;
+	grid-row: 2;
+}
+
+.example img {
+	max-width: 100%;
+}
+
