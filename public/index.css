@@ -1,7 +1,7 @@
 :root {
 	--section-padding: 1em;
 	--section-left-padding: var(--section-padding);
-	--section-right-padding: var(--section-left-padding);
+	--section-right-padding: var(--section-padding);
 }
 
 html,
