@@ -3,3 +3,14 @@ body {
 	margin: 0;
 	font-family: 'Fira Sans', sans-serif;
 }
+
+header > .name {
+	font-family: 'Alfa Slab One', serif;
+	font-size: 3.5em;
+}
+
+header > .tagline {
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: bold;
+	font-size: 1.5em;
+}
