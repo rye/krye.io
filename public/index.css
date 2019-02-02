@@ -4,6 +4,11 @@ body {
 	font-family: 'Fira Sans', sans-serif;
 }
 
+a,
+a:visited {
+	color: inherit;
+}
+
 header {
 	display: grid;
 	justify-content: center;
