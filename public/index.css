@@ -1,3 +1,8 @@
+:root {
+	--section-left-padding: 1em;
+	--section-right-padding: var(--section-left-padding);
+}
+
 html,
 body {
 	margin: 0;
@@ -55,14 +60,13 @@ header > .tagline > span:last-child:after {
 }
 
 section {
-	padding: 0 1em 0 1em;
+	padding: 0 var(--section-right-padding) 0 var(--section-left-padding);
 	margin: 2em auto 2em auto;
 }
 
 @media screen and (min-width: 768px) {
 	section {
-		/* 2 * 1em == sum of LR padding on section */
-		min-width: calc(768px - 2 * 1em);
+		min-width: calc(768px - (var(--section-left-padding) + var(--section-right-padding)));
 		max-width: 50vw;
 	}
 }
