@@ -74,3 +74,8 @@ section {
 
 #about > p > b { color: var(--color-secondary-0-dark); }
 #projects > p > b { color: var(--color-secondary-1-dark); }
+
+.example {
+	margin: 1em 2em 1em 2em;
+	font-size: 90%;
+}
