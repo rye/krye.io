@@ -43,3 +43,13 @@ header > .tagline > span::after {
 header > .tagline > span:last-child:after {
 	content: "";
 }
+
+@media screen and (max-width: 512px) {
+	header > .name .aux {
+		display: none;
+	}
+
+	header > .tagline {
+		display: none;
+	}
+}
