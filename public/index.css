@@ -91,5 +91,10 @@ section {
 .example { grid-row-gap: 0em; grid-column-gap: 1em; }
 
 .example > h1 { align-self: flex-end; }
+.example > .text {
+	align-self: flex-start;
+	text-align: justify;
+}
+
 .example > .left { grid-column: 1; }
 .example > .right { grid-column: 2; }
