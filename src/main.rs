@@ -1,7 +1,10 @@
+#![feature(decl_macro, proc_macro_hygiene)]
+
 #[macro_use]
 extern crate rocket;
 extern crate rocket_contrib;
 
+use std::fs::File;
 use std::path::Path;
 
 use rocket_contrib::serve::StaticFiles;
@@ -12,6 +15,12 @@ fn server() -> rocket::Rocket {
 
 	rocket::Rocket::ignite()
 		.mount("/", StaticFiles::from(static_dir))
+		.mount("/", routes![index])
+}
+
+#[get("/")]
+fn index() -> Result<File, std::io::Error> {
+	File::open(concat!(env!("CARGO_MANIFEST_DIR"), "/public/index.html"))
 }
 
 fn main() {
