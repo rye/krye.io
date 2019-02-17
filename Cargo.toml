@@ -1,0 +1,6 @@
+[package]
+name = 'krye_io'
+version = '0.0.0'
+authors = ['Kristofer Rye <kristofer.rye@gmail.com>']
+publish = false
+edition = '2018'
