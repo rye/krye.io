@@ -15,12 +15,17 @@ fn server() -> rocket::Rocket {
 
 	rocket::Rocket::ignite()
 		.mount("/", StaticFiles::from(static_dir))
-		.mount("/", routes![index])
+		.mount("/", routes![index, resume])
 }
 
 #[get("/")]
 fn index() -> Result<File, std::io::Error> {
 	File::open(concat!(env!("CARGO_MANIFEST_DIR"), "/public/index.html"))
+}
+
+#[get("/resume")]
+fn resume() -> Result<File, std::io::Error> {
+	File::open(concat!(env!("CARGO_MANIFEST_DIR"), "/public/resume.html"))
 }
 
 fn main() {
