@@ -1,0 +1,5 @@
+# Rocket configuration
+/Rocket.toml
+
+# Built rust targets
+target/

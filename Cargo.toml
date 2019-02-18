@@ -1,0 +1,10 @@
+[package]
+name = 'krye_io'
+version = '0.0.0'
+authors = ['Kristofer Rye <kristofer.rye@gmail.com>']
+publish = false
+edition = '2018'
+
+[dependencies]
+rocket = { version = '~0.4.0' }
+rocket_contrib = { version = '~0.4.0' }
