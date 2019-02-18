@@ -25,7 +25,16 @@ impl fairing::Fairing for ErrorReporter {
 	}
 
 	fn on_response(&self, request: &rocket::Request, response: &mut rocket::Response) {
+		use rocket::http::Status;
+		use sentry::protocol::{value::Map, Event, Level, Value};
 		match response.status() {
+			Status::NotFound | Status::InternalServerError => {
+				sentry::capture_event(Event {
+					message: Some(format!("Error: {}", response.status().to_string()).into()),
+					level: Level::Error,
+					..Default::default()
+				});
+			}
 			_ => {}
 		}
 	}
