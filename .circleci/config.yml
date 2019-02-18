@@ -1,0 +1,94 @@
+---
+version: 2.1
+
+executors:
+  rust-nightly:
+    docker:
+      - image: docker.io/rustlang/rust:nightly-slim
+
+commands:
+  check:
+    steps:
+      - run: cargo check
+
+  clippy:
+    description: Run Clippy
+    steps:
+      - run: rustup component add clippy || cargo install --git ssh://git@github.com/rust-lang/rust-clippy.git --force clippy
+      - run: cargo clippy --verbose --all-features -- -D warnings
+
+  fmt:
+    steps:
+      - run: rustup component add rustfmt || cargo install --git ssh://git@github.com/rust-lang/rustfmt.git --force rustfmt-nightly
+      - run: cargo fmt --verbose --all -- --check
+
+  tarpaulin:
+    steps:
+      - run: apt-get update && apt-get install -qy libssl-dev pkg-config
+      - run: RUSTFLAGS="--cfg procmacro2_semver_exempt" cargo install cargo-tarpaulin -f
+      - run: cargo tarpaulin --out Xml
+
+  codecov:
+    steps:
+      - run: apt-get update && apt-get install -qy curl
+      - run: bash <(curl -s https://codecov.io/bash)
+
+  test:
+    steps:
+      - run: cargo test --verbose
+
+  build-release:
+    steps:
+      - run: cargo build --release --verbose
+
+jobs:
+  check:
+    executor: rust-nightly
+    steps:
+      - checkout
+      - check
+
+  clippy:
+    executor: rust-nightly
+    steps:
+      - checkout
+      - clippy
+
+  fmt:
+    executor: rust-nightly
+    steps:
+      - checkout
+      - fmt
+
+  coverage:
+    executor: rust-nightly
+    steps:
+      - checkout
+      - tarpaulin
+      - codecov
+
+  test:
+    executor: rust-nightly
+    steps:
+      - checkout
+      - test
+
+  build:
+    executor: rust-nightly
+    steps:
+      - checkout
+      - build-release
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - check
+      - clippy
+      - fmt
+      - test:
+          requires: [check, clippy, fmt]
+      - coverage:
+          requires: [test]
+      - build:
+          requires: [test]
