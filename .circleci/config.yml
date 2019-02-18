@@ -87,7 +87,7 @@ workflows:
       - clippy
       - fmt
       - test:
-          requires: [check]
+          requires: [check, clippy, fmt]
       - coverage:
           requires: [test]
       - build:
