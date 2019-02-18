@@ -7,6 +7,10 @@ executors:
       - image: docker.io/rustlang/rust:nightly-slim
 
 commands:
+  install-ssl:
+    steps:
+      - run: apt-get update && apt-get install -qy libssl-dev pkg-config
+
   check:
     steps:
       - run: cargo check
@@ -24,7 +28,6 @@ commands:
 
   tarpaulin:
     steps:
-      - run: apt-get update && apt-get install -qy libssl-dev pkg-config
       - run: RUSTFLAGS="--cfg procmacro2_semver_exempt" cargo install cargo-tarpaulin -f
       - run: cargo tarpaulin --out Xml
 
@@ -41,16 +44,22 @@ commands:
     steps:
       - run: cargo build --release --verbose
 
+  build-docker:
+    steps:
+      - run: docker build -t ${DOCKER_IMAGE}:${CIRCLE_SHA1} .
+
 jobs:
   check:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - check
 
   clippy:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - clippy
 
@@ -63,6 +72,7 @@ jobs:
   coverage:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - tarpaulin
       - codecov
@@ -70,14 +80,24 @@ jobs:
   test:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - test
 
   build:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - build-release
+
+  build-image:
+    machine: true
+    environment:
+      DOCKER_IMAGE: 'kryestofer/krye.io'
+    steps:
+      - checkout
+      - build-docker
 
 workflows:
   version: 2
@@ -91,4 +111,6 @@ workflows:
       - coverage:
           requires: [test]
       - build:
+          requires: [test]
+      - build-image:
           requires: [test]
