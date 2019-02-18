@@ -24,6 +24,11 @@ impl fairing::Fairing for ErrorReporter {
 		}
 	}
 
+	fn on_response(&self, request: &rocket::Request, response: &mut rocket::Response) {
+		match response.status() {
+			_ => {}
+		}
+	}
 }
 
 impl std::default::Default for ErrorReporter {
