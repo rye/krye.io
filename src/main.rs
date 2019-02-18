@@ -44,6 +44,10 @@ fn server() -> rocket::Rocket {
 			|rocket| {
 				let dsn: Option<sentry::internals::Dsn> = env::var("SENTRY_DSN")
 					.ok()
+					.or_else(|| match rocket.config().get_str("sentry_dsn") {
+						Ok(s) => Some(String::from(s)),
+						Err(_) => None,
+					})
 					.map(|dsn: String| -> sentry::internals::Dsn {
 						dsn.parse::<sentry::internals::Dsn>().unwrap()
 					});
