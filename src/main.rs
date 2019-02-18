@@ -27,11 +27,33 @@ impl fairing::Fairing for ErrorReporter {
 	fn on_response(&self, request: &rocket::Request, response: &mut rocket::Response) {
 		use rocket::http::Status;
 		use sentry::protocol::{value::Map, Event, Level, Value};
+		use std::collections::BTreeMap;
+		use std::iter::FromIterator;
+
 		match response.status() {
 			Status::NotFound | Status::InternalServerError => {
+				let request_headers = Map::from_iter(
+					request
+						.headers()
+						.iter()
+						.map(|header| (String::from(header.name()), header.value().into())),
+				);
+
+				let response_headers = Map::from_iter(
+					response
+						.headers()
+						.iter()
+						.map(|header| (String::from(header.name()), header.value().into())),
+				);
+
+				let mut extra = BTreeMap::<String, Value>::new();
+				extra.insert("request.headers".to_string(), request_headers.into());
+				extra.insert("response.headers".to_string(), response_headers.into());
+
 				sentry::capture_event(Event {
 					message: Some(format!("Error: {}", response.status().to_string()).into()),
 					level: Level::Error,
+					extra,
 					..Default::default()
 				});
 			}
