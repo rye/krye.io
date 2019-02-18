@@ -31,7 +31,5 @@ fn resume() -> Result<File, std::io::Error> {
 }
 
 fn main() {
-	println!("Hello world!");
-
 	server().launch();
 }
