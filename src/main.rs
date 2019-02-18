@@ -7,6 +7,7 @@ extern crate rocket;
 extern crate rocket_contrib;
 
 use std::fs::File;
+use std::mem;
 use std::path::Path;
 
 use rocket::fairing;
