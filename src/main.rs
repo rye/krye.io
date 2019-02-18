@@ -37,6 +37,12 @@ fn server() -> rocket::Rocket {
 	rocket::Rocket::ignite()
 		.mount("/", StaticFiles::from(static_dir))
 		.mount("/", routes![index, resume])
+		.attach(fairing::AdHoc::on_attach(
+			"Sentry Client creator",
+			|rocket| {
+				Ok(rocket)
+			},
+		))
 		.attach(ErrorReporter::default())
 }
 
