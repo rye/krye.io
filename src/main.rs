@@ -1,5 +1,7 @@
 #![feature(decl_macro, proc_macro_hygiene)]
 
+extern crate sentry;
+
 #[macro_use]
 extern crate rocket;
 extern crate rocket_contrib;
