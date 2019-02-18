@@ -51,7 +51,7 @@ impl fairing::Fairing for ErrorReporter {
 				extra.insert("response.headers".to_string(), response_headers.into());
 
 				sentry::capture_event(Event {
-					message: Some(format!("Error: {}", response.status().to_string()).into()),
+					message: Some(format!("Error: {}", response.status().to_string())),
 					level: Level::Error,
 					user: Some(sentry::User {
 						ip_address: Some(sentry::protocol::IpAddress::Exact(
