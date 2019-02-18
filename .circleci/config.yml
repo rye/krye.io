@@ -19,7 +19,7 @@ commands:
 
   fmt:
     steps:
-      - run: rustup component add rustfmt-preview
+      - run: rustup component add rustfmt || cargo install --git ssh://git@github.com/rust-lang/rustfmt.git --force rustfmt-nightly
       - run: cargo fmt --verbose --all -- --check
 
   tarpaulin:
@@ -92,4 +92,3 @@ workflows:
           requires: [test]
       - build:
           requires: [test]
-
