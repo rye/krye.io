@@ -7,6 +7,10 @@ executors:
       - image: docker.io/rustlang/rust:nightly-slim
 
 commands:
+  install-ssl:
+    steps:
+      - run: apt-get update && apt-get install -qy libssl-dev pkg-config
+
   check:
     steps:
       - run: cargo check
@@ -24,7 +28,6 @@ commands:
 
   tarpaulin:
     steps:
-      - run: apt-get update && apt-get install -qy libssl-dev pkg-config
       - run: RUSTFLAGS="--cfg procmacro2_semver_exempt" cargo install cargo-tarpaulin -f
       - run: cargo tarpaulin --out Xml
 
@@ -49,12 +52,14 @@ jobs:
   check:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - check
 
   clippy:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - clippy
 
@@ -67,6 +72,7 @@ jobs:
   coverage:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - tarpaulin
       - codecov
@@ -74,12 +80,14 @@ jobs:
   test:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - test
 
   build:
     executor: rust-nightly
     steps:
+      - install-ssl
       - checkout
       - build-release
 
