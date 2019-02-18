@@ -9,7 +9,26 @@ extern crate rocket_contrib;
 use std::fs::File;
 use std::path::Path;
 
+use rocket::fairing;
 use rocket_contrib::serve::StaticFiles;
+
+pub struct ErrorReporter {}
+
+impl fairing::Fairing for ErrorReporter {
+	fn info(&self) -> fairing::Info {
+		fairing::Info {
+			name: "Sentry Error Reporter",
+			kind: fairing::Kind::Request | fairing::Kind::Response,
+		}
+	}
+
+}
+
+impl std::default::Default for ErrorReporter {
+	fn default() -> ErrorReporter {
+		ErrorReporter {}
+	}
+}
 
 /// Returns a fully-assembled Rocket, ready for ignition.
 fn server() -> rocket::Rocket {
@@ -18,6 +37,7 @@ fn server() -> rocket::Rocket {
 	rocket::Rocket::ignite()
 		.mount("/", StaticFiles::from(static_dir))
 		.mount("/", routes![index, resume])
+		.attach(ErrorReporter::default())
 }
 
 #[get("/")]
