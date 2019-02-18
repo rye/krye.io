@@ -6,6 +6,7 @@ extern crate sentry;
 extern crate rocket;
 extern crate rocket_contrib;
 
+use std::env;
 use std::fs::File;
 use std::mem;
 use std::path::Path;
@@ -41,10 +42,17 @@ fn server() -> rocket::Rocket {
 		.attach(fairing::AdHoc::on_attach(
 			"Sentry Client creator",
 			|rocket| {
+				let dsn: Option<sentry::internals::Dsn> = env::var("SENTRY_DSN")
+					.ok()
+					.map(|dsn: String| -> sentry::internals::Dsn {
+						dsn.parse::<sentry::internals::Dsn>().unwrap()
+					});
+
 				let env = format!("{:?}", rocket.config().environment);
 				let release = format!("{}@{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"));
 
 				mem::forget(sentry::init(sentry::ClientOptions {
+					dsn: dsn,
 					environment: Some(env.into()),
 					release: Some(release.into()),
 					..Default::default()
