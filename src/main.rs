@@ -98,7 +98,7 @@ fn server() -> rocket::Rocket {
 				let release = format!("{}@{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"));
 
 				mem::forget(sentry::init(sentry::ClientOptions {
-					dsn: dsn,
+					dsn,
 					environment: Some(env.into()),
 					release: Some(release.into()),
 					..Default::default()
