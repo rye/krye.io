@@ -41,9 +41,11 @@ fn server() -> rocket::Rocket {
 			"Sentry Client creator",
 			|rocket| {
 				let env = format!("{:?}", rocket.config().environment);
+				let release = format!("{}@{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"));
 
 				mem::forget(sentry::init(sentry::ClientOptions {
 					environment: Some(env.into()),
+					release: Some(release.into()),
 					..Default::default()
 				}));
 
