@@ -40,6 +40,12 @@ fn server() -> rocket::Rocket {
 		.attach(fairing::AdHoc::on_attach(
 			"Sentry Client creator",
 			|rocket| {
+				mem::forget(sentry::init(sentry::ClientOptions {
+					..Default::default()
+				}));
+
+				sentry::integrations::panic::register_panic_handler();
+
 				Ok(rocket)
 			},
 		))
