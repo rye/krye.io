@@ -84,7 +84,7 @@ jobs:
       - build-release
 
   build-image:
-    executor: machine
+    machine: true
     environment:
       DOCKER_IMAGE: 'kryestofer/krye.io'
     steps:
