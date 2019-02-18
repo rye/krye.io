@@ -40,7 +40,10 @@ fn server() -> rocket::Rocket {
 		.attach(fairing::AdHoc::on_attach(
 			"Sentry Client creator",
 			|rocket| {
+				let env = format!("{:?}", rocket.config().environment);
+
 				mem::forget(sentry::init(sentry::ClientOptions {
+					environment: Some(env.into()),
 					..Default::default()
 				}));
 
