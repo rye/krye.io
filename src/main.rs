@@ -53,6 +53,12 @@ impl fairing::Fairing for ErrorReporter {
 				sentry::capture_event(Event {
 					message: Some(format!("Error: {}", response.status().to_string()).into()),
 					level: Level::Error,
+					user: Some(sentry::User {
+						ip_address: Some(sentry::protocol::IpAddress::Exact(
+							request.client_ip().unwrap(),
+						)),
+						..Default::default()
+					}),
 					extra,
 					..Default::default()
 				});
