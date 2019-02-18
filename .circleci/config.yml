@@ -41,6 +41,10 @@ commands:
     steps:
       - run: cargo build --release --verbose
 
+  build-docker:
+    steps:
+      - run: docker build -t ${DOCKER_IMAGE}:${CIRCLE_SHA1} .
+
 jobs:
   check:
     executor: rust-nightly
@@ -79,6 +83,14 @@ jobs:
       - checkout
       - build-release
 
+  build-image:
+    executor: machine
+    environment:
+      DOCKER_IMAGE: 'kryestofer/krye.io'
+    steps:
+      - checkout
+      - build-docker
+
 workflows:
   version: 2
   commit:
@@ -91,4 +103,6 @@ workflows:
       - coverage:
           requires: [test]
       - build:
+          requires: [test]
+      - build-image:
           requires: [test]
