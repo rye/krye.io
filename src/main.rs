@@ -1,4 +1,4 @@
-#![feature(decl_macro, proc_macro_hygiene)]
+#![feature(decl_macro, proc_macro_hygiene, test)]
 
 extern crate sentry;
 
@@ -6,13 +6,15 @@ extern crate sentry;
 extern crate rocket;
 extern crate rocket_contrib;
 
+extern crate test;
+
 use std::env;
-use std::fs::File;
 use std::mem;
 use std::path::Path;
 
 use rocket::fairing;
 use rocket_contrib::serve::StaticFiles;
+use rocket_contrib::templates::Template;
 
 pub struct ErrorReporter {}
 
@@ -81,6 +83,7 @@ fn server() -> rocket::Rocket {
 	rocket::Rocket::ignite()
 		.mount("/", StaticFiles::from(static_dir))
 		.mount("/", routes![index, resume])
+		.attach(Template::fairing())
 		.attach(fairing::AdHoc::on_attach(
 			"Sentry Client creator",
 			|rocket| {
@@ -113,15 +116,28 @@ fn server() -> rocket::Rocket {
 }
 
 #[get("/")]
-fn index() -> Result<File, std::io::Error> {
-	File::open(concat!(env!("CARGO_MANIFEST_DIR"), "/public/index.html"))
+fn index() -> Template {
+	Template::render("index", ())
 }
 
 #[get("/resume")]
-fn resume() -> Result<File, std::io::Error> {
-	File::open(concat!(env!("CARGO_MANIFEST_DIR"), "/public/resume.html"))
+fn resume() -> Template {
+	Template::render("resume", ())
 }
 
 fn main() {
 	server().launch();
+}
+
+#[cfg(test)]
+mod benches {
+	#[bench]
+	fn index(b: &mut test::Bencher) {
+		b.iter(|| super::index())
+	}
+
+	#[bench]
+	fn resume(b: &mut test::Bencher) {
+		b.iter(|| super::resume())
+	}
 }

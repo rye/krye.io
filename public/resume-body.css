@@ -1,0 +1,15 @@
+section#body > header {
+}
+
+section#body > section {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+section#body > section:first-of-type {
+	margin-top: 0;
+}
+
+section#body > section:last-of-type {
+	margin-bottom: 0;
+}
