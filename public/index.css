@@ -46,14 +46,16 @@ header > .tagline {
 	font-size: 1.5em;
 }
 
+header > .tagline > span.item.bigger + span.item:before { content: attr(data-separator) " "; }
 header > .tagline > span.item.bigger { font-size: 1.25em; }
 
-header > .tagline > span::after {
+header > .tagline > span.item::after {
 	font-size: var(--tagline-font-size);
 	content: " " attr(data-separator);
 }
 
-header > .tagline > span:last-child:after {
+header > .tagline > span:last-child:after,
+header > .tagline > span.bigger:after {
 	content: "";
 }
 
