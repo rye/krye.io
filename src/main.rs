@@ -113,8 +113,8 @@ fn server() -> rocket::Rocket {
 }
 
 #[get("/")]
-fn index() -> Result<File, std::io::Error> {
-	File::open(concat!(env!("CARGO_MANIFEST_DIR"), "/public/index.html"))
+fn index() -> Template {
+	Template::render("index", ())
 }
 
 #[get("/resume")]
