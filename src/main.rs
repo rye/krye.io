@@ -120,8 +120,8 @@ fn index() -> Template {
 }
 
 #[get("/resume")]
-fn resume() -> Result<File, std::io::Error> {
-	File::open(concat!(env!("CARGO_MANIFEST_DIR"), "/public/resume.html"))
+fn resume() -> Template {
+	Template::render("resume", ())
 }
 
 fn main() {
