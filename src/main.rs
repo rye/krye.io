@@ -13,6 +13,7 @@ use std::path::Path;
 
 use rocket::fairing;
 use rocket_contrib::serve::StaticFiles;
+use rocket_contrib::templates::Template;
 
 pub struct ErrorReporter {}
 
@@ -81,6 +82,7 @@ fn server() -> rocket::Rocket {
 	rocket::Rocket::ignite()
 		.mount("/", StaticFiles::from(static_dir))
 		.mount("/", routes![index, resume])
+		.attach(Template::fairing())
 		.attach(fairing::AdHoc::on_attach(
 			"Sentry Client creator",
 			|rocket| {
