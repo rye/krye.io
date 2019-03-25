@@ -1,10 +1,12 @@
-#![feature(decl_macro, proc_macro_hygiene)]
+#![feature(decl_macro, proc_macro_hygiene, test)]
 
 extern crate sentry;
 
 #[macro_use]
 extern crate rocket;
 extern crate rocket_contrib;
+
+extern crate test;
 
 use std::env;
 use std::mem;
@@ -125,4 +127,17 @@ fn resume() -> Template {
 
 fn main() {
 	server().launch();
+}
+
+#[cfg(test)]
+mod benches {
+	#[bench]
+	fn index(b: &mut test::Bencher) {
+		b.iter(|| super::index())
+	}
+
+	#[bench]
+	fn resume(b: &mut test::Bencher) {
+		b.iter(|| super::resume())
+	}
 }
