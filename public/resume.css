@@ -62,10 +62,19 @@ body > aside > section > header {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .flex-span-se > span {
 	flex: 0 1 auto;
+}
+
+.sub-position .flex-span-se > span.department::before {
+	content: ", ";
+}
+.sub-position .flex-span-se > span.department {
+	flex: 1 0 auto;
+	font-style: italic;
 }
 
 .comma-separated-ul ul,
@@ -92,3 +101,13 @@ ul.comma-separated > li:last-child::after {
 .smaller-content > * {
 	font-size: 90%;
 }
+
+
+aside section,
+aside main,
+section section,
+section main {
+	padding-left: 1em;
+}
+
+.sub-position > .nlt-style span.title { font-weight: bold; }

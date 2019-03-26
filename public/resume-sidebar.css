@@ -7,36 +7,58 @@ aside#meta p {
 	margin-block-end: 0.5em;
 }
 
-aside#meta section,
-aside#meta main {
-	padding-left: 1em;
-}
-
-aside#meta > section {
+aside#meta > section,
+section#body > section {
 	padding-left: 0;
 	margin-top: 1em;
 	margin-bottom: 1.5em;
 }
 
-aside#meta > section > section {
+aside#meta > section > section,
+section#body > section > section {
 	margin-top: 0.5em;
 	margin-bottom: 1em;
 }
 
-aside#meta > section > *:not(header) {
+aside#meta > section > *:not(header),
+section#body > section > *:not(header) {
 	font-size: 90%;
 }
 
-aside#meta > section:first-of-type { margin-top: 0; }
-aside#meta > section:last-of-type { margin-bottom: 0; }
+aside#meta > section:first-of-type,
+section#body > section:first-of-type {
+	margin-top: 0;
+}
+aside#meta > section:last-of-type,
+section#body > section:last-of-type {
+	margin-bottom: 0;
+}
 
-aside#meta > section > section > header {
+aside#meta > section > section > header,
+section#body > section > section > header {
 	font-size: 115%;
 	margin-bottom: 0.5em;
 }
 
-aside#meta > section > section > header span.name { font-weight: bold; }
-aside#meta > section > section > header div.timespan { font-size: 80%; text-align: right; }
+.nlt-style span.title { font-weight: bold; }
+.nlt-style span.name { font-weight: bold; }
+.nlt-style span.employer { font-style: italic; }
+.nlt-style .timespan { font-size: 80%; text-align: right; }
+
+.nlt-style div.job-deets {
+	padding-left: 1em;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nlt-style div.job-deets .title {
+	font-weight: normal;
+	font-style: italic;
+	font-size: 90%;
+}
 
 aside#meta ul {
 	margin-top: 0.5em;
