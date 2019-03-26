@@ -118,21 +118,27 @@ fn server() -> rocket::Rocket {
 
 #[derive(serde::Serialize, Hash, Eq, PartialEq, Debug)]
 struct Context {
-	version: Option<String>
+	version: Option<String>,
 }
 
 #[get("/")]
 fn index() -> Template {
-	Template::render("index", Context {
-		version: Some(env!("CARGO_PKG_VERSION").to_string())
-	})
+	Template::render(
+		"index",
+		Context {
+			version: Some(env!("CARGO_PKG_VERSION").to_string()),
+		},
+	)
 }
 
 #[get("/resume")]
 fn resume() -> Template {
-	Template::render("resume", Context {
-		version: Some(env!("CARGO_PKG_VERSION").to_string())
-	})
+	Template::render(
+		"resume",
+		Context {
+			version: Some(env!("CARGO_PKG_VERSION").to_string()),
+		},
+	)
 }
 
 fn main() {
