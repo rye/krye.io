@@ -9,6 +9,9 @@ extern crate serde;
 
 extern crate test;
 
+extern crate krye_io;
+use krye_io::*;
+
 use std::env;
 use std::mem;
 use std::path::Path;
@@ -114,11 +117,6 @@ fn server() -> rocket::Rocket {
 			},
 		))
 		.attach(ErrorReporter::default())
-}
-
-#[derive(serde::Serialize, Hash, Eq, PartialEq, Debug)]
-struct Context {
-	version: Option<String>,
 }
 
 #[get("/")]
