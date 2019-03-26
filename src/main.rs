@@ -38,9 +38,7 @@ fn server() -> rocket::Rocket {
 						Ok(s) => Some(String::from(s)),
 						Err(_) => None,
 					})
-					.map(|dsn: String| -> Dsn {
-						dsn.parse::<Dsn>().unwrap()
-					});
+					.map(|dsn: String| -> Dsn { dsn.parse::<Dsn>().unwrap() });
 
 				let env = format!("{:?}", rocket.config().environment);
 				let release = format!("{}@{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"));
