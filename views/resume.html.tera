@@ -1,280 +1,272 @@
-<!doctype html>
-<html>
-	<head>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700" rel="stylesheet">
-		<link rel="stylesheet" href="resume-body.css">
-		<link rel="stylesheet" href="resume-sidebar.css">
-		<link rel="stylesheet" href="resume.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="version" content="0.0.0" />
+{% extends "base" %}
 
-		<meta name="theme-color" content="#728da5" />
-		<meta name="author" content="Kristofer Rye" />
-		<meta name="description" content="Kristofer Rye" />
-		<meta name="keywords" content="Kristofer,Rye,Kris,Programmer,Developer,Ruby,HTML,CSS,JavaScript,Sass,Rails,Private,Pilot,Cello" />
+{% block fonts %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700" rel="stylesheet">
+{% endblock fonts %}
 
-		<title>Kristofer Rye</title>
-	</head>
+{% block stylesheets %}
+<link rel="stylesheet" href="resume-body.css">
+<link rel="stylesheet" href="resume-sidebar.css">
+<link rel="stylesheet" href="resume.css">
+{% endblock stylesheets %}
 
-	<body>
-		<header>
-			Kristofer Rye
-		</header>
+{% block title %}Resume | Kristofer Rye{% endblock title %}
 
-		<aside id="meta" class="nice-space">
-			<header>
-				About Me
+{% block body %}
+<header>
+	Kristofer Rye
+</header>
+
+<aside id="meta" class="nice-space">
+	<header>
+		About Me
+	</header>
+
+	<section id="contact">
+		<header>Contact</header>
+
+		<main>
+			<div class="email">
+				<i class="fas fa-envelope"></i>
+				<a href="mailto:kristofer.rye@gmail.com">kristofer.rye@gmail.com</a>
+			</div>
+			<div class="phone">
+				<i class="fas fa-phone"></i>
+				<a href="tel:+17654040640">(765) 404-0640</a>
+			</div>
+			<div class="gh">
+				<i class="fab fa-github"></i>
+				<a href="https://github.com/rye">github.com/rye</a>
+			</div>
+			<div class="li">
+				<i class="fab fa-linkedin"></i>
+				<a href="https://www.linkedin.com/in/krstfrye">linkedin.com/in/krstfrye</a>
+			</div>
+		</main>
+	</section>
+
+	<section id="education">
+		<header>Education</header>
+
+		<section id="stolaf">
+			<header class="nlt-style">
+				<div class="flex-span-se">
+					<span class="name">St. Olaf College</span>
+					<span class="location">Northfield, MN</span>
+				</div>
+
+				<div class="timespan">Sep. 2016&ndash;May 2020 (expected)</div>
 			</header>
 
-			<section id="contact">
-				<header>Contact</header>
+			<p class="degrees">B.A. in Computer Science<br/>B.A. in Mathematics</p>
+			<p class="gpa">GPA: 3.69 / 4.0</p>
+			<p class="edu-relevant-coursework">Notable coursework:</p>
+			<ul class="smaller-content">
+				<li>CSCI 253: <i>Algorithms and Data&nbsp;Structures</i></li>
+				<li>CSCI 300: <i>Parallel and Distributed&nbsp;Computing</i></li>
+				<li>MATH 352: <i>Abstract Algebra II</i></li>
+			</ul>
+		</section>
+	</section>
 
-				<main>
-					<div class="email">
-						<i class="fas fa-envelope"></i>
-						<a href="mailto:kristofer.rye@gmail.com">kristofer.rye@gmail.com</a>
-					</div>
-					<div class="phone">
-						<i class="fas fa-phone"></i>
-						<a href="tel:+17654040640">(765) 404-0640</a>
-					</div>
-					<div class="gh">
-						<i class="fab fa-github"></i>
-						<a href="https://github.com/rye">github.com/rye</a>
-					</div>
-					<div class="li">
-						<i class="fab fa-linkedin"></i>
-						<a href="https://www.linkedin.com/in/krstfrye">linkedin.com/in/krstfrye</a>
-					</div>
-				</main>
+	<section id="skills">
+		<header>Skills</header>
+
+		<section id="languages" class="comma-separated-ul">
+			<header>Languages</header>
+
+			<section id="proficiency">
+				<header>Proficiency</header>
+
+				<ul class="smaller-content tight">
+					<li>Ruby</li>
+					<li>Rust</li>
+					<li>Javascript</li>
+					<li>Java</li>
+					<li>C/C++</li>
+				</ul>
 			</section>
 
-			<section id="education">
-				<header>Education</header>
+			<section id="experience">
+				<header>Experience</header>
 
-				<section id="stolaf">
-					<header class="nlt-style">
-						<div class="flex-span-se">
-							<span class="name">St. Olaf College</span>
-							<span class="location">Northfield, MN</span>
-						</div>
-
-						<div class="timespan">Sep. 2016&ndash;May 2020 (expected)</div>
-					</header>
-
-					<p class="degrees">B.A. in Computer Science<br/>B.A. in Mathematics</p>
-					<p class="gpa">GPA: 3.69 / 4.0</p>
-					<p class="edu-relevant-coursework">Notable coursework:</p>
-					<ul class="smaller-content">
-						<li>CSCI 253: <i>Algorithms and Data&nbsp;Structures</i></li>
-						<li>CSCI 300: <i>Parallel and Distributed&nbsp;Computing</i></li>
-						<li>MATH 352: <i>Abstract Algebra II</i></li>
-					</ul>
-				</section>
-			</section>
-
-			<section id="skills">
-				<header>Skills</header>
-
-				<section id="languages" class="comma-separated-ul">
-					<header>Languages</header>
-
-					<section id="proficiency">
-						<header>Proficiency</header>
-
-						<ul class="smaller-content tight">
-							<li>Ruby</li>
-							<li>Rust</li>
-							<li>Javascript</li>
-							<li>Java</li>
-							<li>C/C++</li>
-						</ul>
-					</section>
-
-					<section id="experience">
-						<header>Experience</header>
-
-						<ul class="smaller-content tight">
-							<li>LISP</li>
-							<li>Python</li>
-							<li>Go</li>
-							<li>C#</li>
-							<li>Elixir</li>
-							<li>R</li>
-						</ul>
-					</section>
-				</section>
-
-				<section id="frameworks" class="comma-separated-ul">
-					<header>Tools/Frameworks</header>
-
-					<section id="proficiency">
-						<header>Proficiency</header>
-
-						<ul class="smaller-content tight">
-							<li>Git</li>
-							<li>Docker</li>
-							<li>Ansible</li>
-							<li>Kubernetes</li>
-							<li>RSpec</li>
-							<li>Jest</li>
-							<li>KVM</li>
-						</ul>
-					</section>
-
-					<section id="experience">
-						<header>Experience</header>
-
-						<ul class="smaller-content tight">
-							<li>React</li>
-							<li>React-Native</li>
-						</ul>
-					</section>
-				</section>
-			</section>
-		</aside>
-
-		<section id="body" class="nice-space">
-			<header>My Work</header>
-
-			<section id="work">
-				<header>Work Experience</header>
-
-				<section id="stolaf">
-					<header class="nlt-style">
-						<div class="flex-span-se">
-							<span class="name">St. Olaf College</span>
-							<span class="location">Northfield, MN</span>
-					  </div>
-					</header>
-
-					<section id="iso" class="sub-position">
-						<header class="nlt-style">
-							<div class="flex-span-se">
-								<span class="title">Information Security Analyst</span>
-								<span class="department">IT</span>
-								<span class="timespan">Mar. 2018&nbsp;&ndash;&nbsp;<em>present</em></span>
-							</div>
-						</header>
-
-						<main>
-						</main>
-					</section>
-
-					<section id="helpdesk" class="sub-position">
-						<header class="nlt-style">
-							<div class="flex-span-se">
-								<span class="title">Helpdesk Technician</span>
-								<span class="department">IT</span>
-								<span class="timespan">Sep. 2017&nbsp;&ndash;&nbsp;Mar. 2018</span>
-							</div>
-						</header>
-
-						<main>
-							Text here.
-						</main>
-					</section>
-
-					<section id="cluster-manager" class="sub-position">
-						<header class="nlt-style">
-							<div class="flex-span-se">
-								<span class="title">Lead Cluster Manager</span>
-								<span class="department">CS</span>
-								<span class="timespan">Mar. 2017&nbsp;&ndash;&nbsp;Sep. 2018</span>
-							</div>
-						</header>
-
-						<main>
-							Text here.
-						</main>
-					</section>
-
-					<section id="sd-ca" class="sub-position">
-						<header class="nlt-style">
-							<div class="flex-span-se">
-								<span class="title">Course Assistant: Software Design</span>
-								<span class="department">CS</span>
-								<span class="timespan">Jan. 2016&nbsp;&ndash;&nbsp;May 2018</span>
-							</div>
-						</header>
-
-						<main>
-							Text here.
-						</main>
-					</section>
-
-					<section id="bms" class="sub-position">
-						<header class="nlt-style">
-							<div class="flex-span-se">
-								<span class="title">Audio/Video Engineer</span>
-								<span class="department">Broadcast/Media Services</span>
-								<span class="timespan">Sep. 2016&nbsp;&ndash;&nbsp;Apr. 2017</span>
-							</div>
-						</header>
-
-						<main>
-							Text here.
-						</main>
-					</section>
-
- 				</section>
-
-				<section id="spensa">
-					<header class="nlt-style">
-						<div class="flex-span-se">
-							<span class="name">Spensa Technologies</span>
-							<span class="location">Remote</span>
-						</div>
-						<div class="job-deets">
-							<span class="title">Software Developer Intern</span>
-							<span class="timespan">Nov. 2014&nbsp;&ndash;&nbsp;Aug. 2015</span>
-						</div>
-					</header>
-
-					<main>
-						Text here.
-					</main>
-				</section>
-
-				<section id="wlcsc">
-					<header class="nlt-style">
-						<div class="flex-span-se">
-							<span class="name">West Lafayette Community School Corporation</span>
-							<span class="location">West Lafayette, IN</span>
-						</div>
-						<div class="job-deets">
-							<span class="title">Student Volunteer (IT)</span>
-							<span class="timespan">May 2013&nbsp;&ndash;&nbsp;Jul. 2014</span>
-						</div>
-					</header>
-
-					<main>
-						Text here.
-					</main>
-				</section>
-			</section>
-
-			<section id="projects">
-				<header>Projects</header>
-
-				<section id="aao">
-					<header class="nlt-style">
-						<div class="flex-span-se">
-							<span class="name">All About Olaf</span>
-							<span class="timespan">Aug. 2017&nbsp;&ndash;&nbsp;<em>present</em></span>
-						</div>
-					</header>
-
-					<main>
-						<strong>Shipping a mobile app</strong> to over 2000 iOS and Android users (600+ DAU) and tracking and managing dependencies as well as helping to work on <strong>improving and streamlining deployment practices</strong>.  Regularly reviewing new changes and helping to coordinate releases.
-					</main>
-				</section>
+				<ul class="smaller-content tight">
+					<li>LISP</li>
+					<li>Python</li>
+					<li>Go</li>
+					<li>C#</li>
+					<li>Elixir</li>
+					<li>R</li>
+				</ul>
 			</section>
 		</section>
 
-		<!-- Load Google Analytics -->
-		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-77379897-1','auto');ga('send','pageview');ga('send','event',{'eventCategory':'Page','eventAction':'VersionRegister'})</script>
-	</body>
-</html>
+		<section id="frameworks" class="comma-separated-ul">
+			<header>Tools/Frameworks</header>
+
+			<section id="proficiency">
+				<header>Proficiency</header>
+
+				<ul class="smaller-content tight">
+					<li>Git</li>
+					<li>Docker</li>
+					<li>Ansible</li>
+					<li>Kubernetes</li>
+					<li>RSpec</li>
+					<li>Jest</li>
+					<li>KVM</li>
+				</ul>
+			</section>
+
+			<section id="experience">
+				<header>Experience</header>
+
+				<ul class="smaller-content tight">
+					<li>React</li>
+					<li>React-Native</li>
+				</ul>
+			</section>
+		</section>
+	</section>
+</aside>
+
+<section id="body" class="nice-space">
+	<header>My Work</header>
+
+	<section id="work">
+		<header>Work Experience</header>
+
+		<section id="stolaf">
+			<header class="nlt-style">
+				<div class="flex-span-se">
+					<span class="name">St. Olaf College</span>
+					<span class="location">Northfield, MN</span>
+				</div>
+			</header>
+
+			<section id="iso" class="sub-position">
+				<header class="nlt-style">
+					<div class="flex-span-se">
+						<span class="title">Information Security Analyst</span>
+						<span class="department">IT</span>
+						<span class="timespan">Mar. 2018&nbsp;&ndash;&nbsp;<em>present</em></span>
+					</div>
+				</header>
+
+				<main>
+				</main>
+			</section>
+
+			<section id="helpdesk" class="sub-position">
+				<header class="nlt-style">
+					<div class="flex-span-se">
+						<span class="title">Helpdesk Technician</span>
+						<span class="department">IT</span>
+						<span class="timespan">Sep. 2017&nbsp;&ndash;&nbsp;Mar. 2018</span>
+					</div>
+				</header>
+
+				<main>
+					Text here.
+				</main>
+			</section>
+
+			<section id="cluster-manager" class="sub-position">
+				<header class="nlt-style">
+					<div class="flex-span-se">
+						<span class="title">Lead Cluster Manager</span>
+						<span class="department">CS</span>
+						<span class="timespan">Mar. 2017&nbsp;&ndash;&nbsp;Sep. 2018</span>
+					</div>
+				</header>
+
+				<main>
+					Text here.
+				</main>
+			</section>
+
+			<section id="sd-ca" class="sub-position">
+				<header class="nlt-style">
+					<div class="flex-span-se">
+						<span class="title">Course Assistant: Software Design</span>
+						<span class="department">CS</span>
+						<span class="timespan">Jan. 2016&nbsp;&ndash;&nbsp;May 2018</span>
+					</div>
+				</header>
+
+				<main>
+					Text here.
+				</main>
+			</section>
+
+			<section id="bms" class="sub-position">
+				<header class="nlt-style">
+					<div class="flex-span-se">
+						<span class="title">Audio/Video Engineer</span>
+						<span class="department">Broadcast/Media Services</span>
+						<span class="timespan">Sep. 2016&nbsp;&ndash;&nbsp;Apr. 2017</span>
+					</div>
+				</header>
+
+				<main>
+					Text here.
+				</main>
+			</section>
+
+ 		</section>
+
+		<section id="spensa">
+			<header class="nlt-style">
+				<div class="flex-span-se">
+					<span class="name">Spensa Technologies</span>
+					<span class="location">Remote</span>
+				</div>
+				<div class="job-deets">
+					<span class="title">Software Developer Intern</span>
+					<span class="timespan">Nov. 2014&nbsp;&ndash;&nbsp;Aug. 2015</span>
+				</div>
+			</header>
+
+			<main>
+				Text here.
+			</main>
+		</section>
+
+		<section id="wlcsc">
+			<header class="nlt-style">
+				<div class="flex-span-se">
+					<span class="name">West Lafayette Community School Corporation</span>
+					<span class="location">West Lafayette, IN</span>
+				</div>
+				<div class="job-deets">
+					<span class="title">Student Volunteer (IT)</span>
+					<span class="timespan">May 2013&nbsp;&ndash;&nbsp;Jul. 2014</span>
+				</div>
+			</header>
+
+			<main>
+				Text here.
+			</main>
+		</section>
+	</section>
+
+	<section id="projects">
+		<header>Projects</header>
+
+		<section id="aao">
+			<header class="nlt-style">
+				<div class="flex-span-se">
+					<span class="name">All About Olaf</span>
+					<span class="timespan">Aug. 2017&nbsp;&ndash;&nbsp;<em>present</em></span>
+				</div>
+			</header>
+
+			<main>
+				<strong>Shipping a mobile app</strong> to over 2000 iOS and Android users (600+ DAU) and tracking and managing dependencies as well as helping to work on <strong>improving and streamlining deployment practices</strong>.  Regularly reviewing new changes and helping to coordinate releases.
+			</main>
+		</section>
+	</section>
+</section>
+{% endblock body %}
