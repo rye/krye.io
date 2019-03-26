@@ -91,14 +91,16 @@ fn server() -> rocket::Rocket {
 		.attach(fairing::AdHoc::on_attach(
 			"Sentry Client creator",
 			|rocket| {
-				let dsn: Option<sentry::internals::Dsn> = env::var("SENTRY_DSN")
+				use sentry::internals::Dsn;
+
+				let dsn: Option<Dsn> = env::var("SENTRY_DSN")
 					.ok()
 					.or_else(|| match rocket.config().get_str("sentry_dsn") {
 						Ok(s) => Some(String::from(s)),
 						Err(_) => None,
 					})
-					.map(|dsn: String| -> sentry::internals::Dsn {
-						dsn.parse::<sentry::internals::Dsn>().unwrap()
+					.map(|dsn: String| -> Dsn {
+						dsn.parse::<Dsn>().unwrap()
 					});
 
 				let env = format!("{:?}", rocket.config().environment);
