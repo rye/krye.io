@@ -1,4 +1,4 @@
-# krye.io
+# krye.io &bull; [![dependency status](https://deps.rs/repo/github/rye/krye.io/status.svg)](https://deps.rs/repo/github/rye/krye.io)
 
 The managerial/front-end part of my personal website.
 More than anything, a set of scripts to quickly and efficiently generate content pages from source Markdown, templates.
