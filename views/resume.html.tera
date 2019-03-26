@@ -55,7 +55,7 @@
 				<header>Education</header>
 
 				<section id="stolaf">
-					<header>
+					<header class="nlt-style">
 						<div class="flex-span-se">
 							<span class="name">St. Olaf College</span>
 							<span class="location">Northfield, MN</span>
@@ -143,17 +143,134 @@
 				<header>Work Experience</header>
 
 				<section id="stolaf">
-					<header>
+					<header class="nlt-style">
 						<div class="flex-span-se">
 							<span class="name">St. Olaf College</span>
 							<span class="location">Northfield, MN</span>
+					  </div>
+					</header>
+
+					<section id="iso" class="sub-position">
+						<header class="nlt-style">
+							<div class="flex-span-se">
+								<span class="title">Information Security Analyst</span>
+								<span class="department">IT</span>
+								<span class="timespan">Mar. 2018&nbsp;&ndash;&nbsp;<em>present</em></span>
+							</div>
 						</header>
-					</div>
+
+						<main>
+						</main>
+					</section>
+
+					<section id="helpdesk" class="sub-position">
+						<header class="nlt-style">
+							<div class="flex-span-se">
+								<span class="title">Helpdesk Technician</span>
+								<span class="department">IT</span>
+								<span class="timespan">Sep. 2017&nbsp;&ndash;&nbsp;Mar. 2018</span>
+							</div>
+						</header>
+
+						<main>
+							Text here.
+						</main>
+					</section>
+
+					<section id="cluster-manager" class="sub-position">
+						<header class="nlt-style">
+							<div class="flex-span-se">
+								<span class="title">Lead Cluster Manager</span>
+								<span class="department">CS</span>
+								<span class="timespan">Mar. 2017&nbsp;&ndash;&nbsp;Sep. 2018</span>
+							</div>
+						</header>
+
+						<main>
+							Text here.
+						</main>
+					</section>
+
+					<section id="sd-ca" class="sub-position">
+						<header class="nlt-style">
+							<div class="flex-span-se">
+								<span class="title">Course Assistant: Software Design</span>
+								<span class="department">CS</span>
+								<span class="timespan">Jan. 2016&nbsp;&ndash;&nbsp;May 2018</span>
+							</div>
+						</header>
+
+						<main>
+							Text here.
+						</main>
+					</section>
+
+					<section id="bms" class="sub-position">
+						<header class="nlt-style">
+							<div class="flex-span-se">
+								<span class="title">Audio/Video Engineer</span>
+								<span class="department">Broadcast/Media Services</span>
+								<span class="timespan">Sep. 2016&nbsp;&ndash;&nbsp;Apr. 2017</span>
+							</div>
+						</header>
+
+						<main>
+							Text here.
+						</main>
+					</section>
+
+ 				</section>
+
+				<section id="spensa">
+					<header class="nlt-style">
+						<div class="flex-span-se">
+							<span class="name">Spensa Technologies</span>
+							<span class="location">Remote</span>
+						</div>
+						<div class="job-deets">
+							<span class="title">Software Developer Intern</span>
+							<span class="timespan">Nov. 2014&nbsp;&ndash;&nbsp;Aug. 2015</span>
+						</div>
+					</header>
+
+					<main>
+						Text here.
+					</main>
+				</section>
+
+				<section id="wlcsc">
+					<header class="nlt-style">
+						<div class="flex-span-se">
+							<span class="name">West Lafayette Community School Corporation</span>
+							<span class="location">West Lafayette, IN</span>
+						</div>
+						<div class="job-deets">
+							<span class="title">Student Volunteer (IT)</span>
+							<span class="timespan">May 2013&nbsp;&ndash;&nbsp;Jul. 2014</span>
+						</div>
+					</header>
+
+					<main>
+						Text here.
+					</main>
 				</section>
 			</section>
 
 			<section id="projects">
 				<header>Projects</header>
+
+				<section id="aao">
+					<header class="nlt-style">
+						<div class="flex-span-se">
+							<span class="name">All About Olaf</span>
+							<span class="timespan">Aug. 2017&nbsp;&ndash;&nbsp;<em>present</em></span>
+						</div>
+					</header>
+
+					<main>
+						<strong>Shipping a mobile app</strong> to over 2000 iOS and Android users (600+ DAU) and tracking and managing dependencies as well as helping to work on <strong>improving and streamlining deployment practices</strong>.  Regularly reviewing new changes and helping to coordinate releases.
+					</main>
+				</section>
 			</section>
 		</section>
 
