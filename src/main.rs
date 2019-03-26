@@ -5,6 +5,7 @@ extern crate rocket;
 extern crate rocket_contrib;
 
 extern crate sentry;
+extern crate serde;
 
 extern crate test;
 
@@ -115,14 +116,23 @@ fn server() -> rocket::Rocket {
 		.attach(ErrorReporter::default())
 }
 
+#[derive(serde::Serialize, Hash, Eq, PartialEq, Debug)]
+struct Context {
+	version: Option<String>
+}
+
 #[get("/")]
 fn index() -> Template {
-	Template::render("index", ())
+	Template::render("index", Context {
+		version: Some(env!("CARGO_PKG_VERSION").to_string())
+	})
 }
 
 #[get("/resume")]
 fn resume() -> Template {
-	Template::render("resume", ())
+	Template::render("resume", Context {
+		version: Some(env!("CARGO_PKG_VERSION").to_string())
+	})
 }
 
 fn main() {
