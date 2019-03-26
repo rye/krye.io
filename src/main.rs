@@ -121,22 +121,15 @@ fn server() -> rocket::Rocket {
 
 #[get("/")]
 fn index() -> Template {
-	Template::render(
-		"index",
-		Context {
-			version: Some(env!("CARGO_PKG_VERSION").to_string()),
-		},
-	)
+	let context: Context = Default::default();
+
+	Template::render("index", context)
 }
 
 #[get("/resume")]
 fn resume() -> Template {
-	Template::render(
-		"resume",
-		Context {
-			version: Some(env!("CARGO_PKG_VERSION").to_string()),
-		},
-	)
+	let context: Context = Default::default();
+	Template::render("resume", context)
 }
 
 fn main() {
