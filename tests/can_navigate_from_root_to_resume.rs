@@ -30,10 +30,13 @@ fn loads_okay() {
 			.and_then(|url| {
 				assert_eq!(url.as_ref(), "http://localhost:8000/resume");
 				Ok(())
-			})
+			}),
 	);
 
 	rt.shutdown_on_idle().wait().unwrap();
 
-	assert!(res.is_ok(), format!("Could not complete checklist: {:?}", res.unwrap_err()));
+	assert!(
+		res.is_ok(),
+		format!("Could not complete checklist: {:?}", res.unwrap_err())
+	);
 }

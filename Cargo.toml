@@ -8,7 +8,7 @@ edition = '2018'
 [dependencies]
 rocket = { version = '~0.4.0' }
 sentry = '~0.15.0'
-serde = '*'
+serde = '~1.0.89'
 
 [dependencies.rocket_contrib]
 version = '~0.4.0'
@@ -16,6 +16,6 @@ default-features = false
 features = ['tera_templates', 'serve']
 
 [dev-dependencies]
-fantoccini = '*'
-futures = '*'
-tokio = '*'
+fantoccini = '~0.11.7'
+futures = '~0.1.25'
+tokio = '~0.1.18'
