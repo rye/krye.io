@@ -1,2 +1,5 @@
-# Generated Jekyll site
-/_site
+# Generated Jekyll site directories
+_site
+
+# Generated Jekyll metadata
+.jekyll-metadata

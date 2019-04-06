@@ -9,8 +9,9 @@ body {
 	height: 11in;
 	padding: 1cm;
 
-	grid-template-rows: 1in auto;
-	grid-template-columns: 1fr 2fr;
+	grid-template-rows: min-content max-content;
+	grid-row-gap: 1em;
+	grid-template-columns: 23fr 49fr;
 	/* grid-column-gap: var(--sidebar-column-gap); */
 
 	font-family: 'Fira Sans', sans-serif;
@@ -30,9 +31,37 @@ body {
 body > header {
 	grid-column: 1 / 3;
 	text-align: center;
-	font-size: 54pt;
-	font-weight: bold;
 }
+
+body > header > div#name {
+	font-family: 'Overpass';
+	font-size: 50pt;
+	font-weight: 900;
+	line-height: 1.25em;
+}
+
+body > header > div#contact {
+	font-size: 10pt;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-weight: normal;
+}
+
+body > header > div#contact > span {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+body > header > div#contact > span > a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body > header > div#contact > span > i {
+	display: none;
+}
+
 
 body > aside#meta { grid-column: 1; }
 body > section#body { grid-column: 2; }
@@ -62,7 +91,7 @@ body > aside > section > header {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-between;
-	align-items: center;
+	align-items: baseline;
 }
 
 .flex-span-se > span {

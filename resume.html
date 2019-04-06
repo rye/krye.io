@@ -3,7 +3,8 @@ layout: base
 stylesheets:
 - '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">'
 - '<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">'
-- '<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700" rel="stylesheet">'
+- '<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,900" rel="stylesheet">'
+- '<link href="https://fonts.googleapis.com/css?family=Overpass:400,400i,700,900" rel="stylesheet">'
 - '<link rel="stylesheet" href="resume-body.css">'
 - '<link rel="stylesheet" href="resume-sidebar.css">'
 - '<link rel="stylesheet" href="resume.css">'
@@ -11,37 +12,31 @@ title: 'Resume | Kristofer Rye'
 ---
 
 <header>
-	Kristofer Rye
+	<div id="name">
+		Kristofer Rye
+	</div>
+
+	<div id="contact">
+		<span class="email">
+			<i class="fas fa-envelope"></i>
+			<a href="mailto:kristofer.rye@gmail.com">kristofer.rye@gmail.com</a>
+		</span>
+		<span class="phone">
+			<i class="fas fa-phone"></i>
+			<a href="tel:+17654040640">(765) 404-0640</a>
+		</span>
+		<span class="gh">
+			<i class="fab fa-github"></i>
+			<a href="https://github.com/rye">github.com/rye</a>
+		</span>
+		<span class="li">
+			<i class="fab fa-linkedin"></i>
+			<a href="https://www.linkedin.com/in/krstfrye">linkedin.com/in/krstfrye</a>
+		</span>
+	</div>
 </header>
 
 <aside id="meta" class="nice-space">
-	<header>
-		About Me
-	</header>
-
-	<section id="contact">
-		<header>Contact</header>
-
-		<main>
-			<div class="email">
-				<i class="fas fa-envelope"></i>
-				<a href="mailto:kristofer.rye@gmail.com">kristofer.rye@gmail.com</a>
-			</div>
-			<div class="phone">
-				<i class="fas fa-phone"></i>
-				<a href="tel:+17654040640">(765) 404-0640</a>
-			</div>
-			<div class="gh">
-				<i class="fab fa-github"></i>
-				<a href="https://github.com/rye">github.com/rye</a>
-			</div>
-			<div class="li">
-				<i class="fab fa-linkedin"></i>
-				<a href="https://www.linkedin.com/in/krstfrye">linkedin.com/in/krstfrye</a>
-			</div>
-		</main>
-	</section>
-
 	<section id="education">
 		<header>Education</header>
 
@@ -128,8 +123,6 @@ title: 'Resume | Kristofer Rye'
 </aside>
 
 <section id="body" class="nice-space">
-	<header>My Work</header>
-
 	<section id="work">
 		<header>Work Experience</header>
 
@@ -178,7 +171,11 @@ title: 'Resume | Kristofer Rye'
 				</header>
 
 				<main>
-					Text here.
+					<strong>Co-managed</strong> the St. Olaf CS Cluster computing resources, handling everything from <strong>VM provisioning</strong> to <strong>network architecture</strong>.
+					Gained valuable <strong>on-call</strong> experience, responding rapidly to power/network issues.
+					Developed a robust monitoring infrastructure.
+					Wrote extensive automation suites with <strong>Ansible</strong> and deployed large Kubernetes/Docker hosts.
+					<strong>Developed a framework</strong> for granting cordoned resource access through containers than traditional VM/bare metal access models.
 				</main>
 			</section>
 
@@ -192,7 +189,9 @@ title: 'Resume | Kristofer Rye'
 				</header>
 
 				<main>
-					Text here.
+					<strong>Graded homework</strong> and ran multiple help sessions; helped first- and second-semester computer science students learn <strong>Git</strong>, <strong>C++</strong>, <strong>OpenGL</strong>, and <strong>GNU Make</strong>.
+					Provided advice and insight into improvements that eventually got made.
+					Maintained an <strong>open-source grading toolkit</strong> to help automate the process of grading homeworks and labs.
 				</main>
 			</section>
 
@@ -206,7 +205,8 @@ title: 'Resume | Kristofer Rye'
 				</header>
 
 				<main>
-					Text here.
+					Learned and used valuable <strong>camera operation</strong> and <strong>video production</strong> skills.
+					As trained, was fully responsible for all aspects of a few broadcasts.
 				</main>
 			</section>
 
