@@ -1,0 +1,6 @@
+exclude:
+- '*.sh'
+- '*.pdf'
+- 'README.md'
+- 'Gemfile'
+- 'Gemfile.lock'

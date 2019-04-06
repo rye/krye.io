@@ -1,11 +1,7 @@
 # krye.io &bull; [![dependency status](https://deps.rs/repo/github/rye/krye.io/status.svg)](https://deps.rs/repo/github/rye/krye.io)
 
-The managerial/front-end part of my personal website.
-More than anything, a set of scripts to quickly and efficiently generate content pages from source Markdown, templates.
+This repository houses the templates, content, and such corresponding to my personal website, which are deployed in CI to GitHub Pages.
+The crate included consists of template-rendering scripts that automatically generate the contents and publish them.
 
-This is intended primarily to rest as a simple HTTP/2 server with content generated into a cache.
-The primary content for this site gets served from a GitHub Pages-as-a-CDN repository, and this repository encapsulates that content.
-
-A separate repository, `api.krye.io` is/was created for the purpose of dynamic content population and storage.
-The API itself is a separate web application system which is requested-from by client-side JS.
-Things like database queries are done this way and a JSON API is exposed. Endpoints can thus be published here without interrupting or coinciding with content changes.
+I prefer to run this site as a static site with API calls as necessary, to an external endpoint.
+(`api.krye.io`, which accepts a variety of routes and parameters.)

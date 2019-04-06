@@ -1,5 +1,2 @@
-# Rocket configuration
-/Rocket.toml
-
-# Built rust targets
-target/
+# Generated Jekyll site
+/_site
