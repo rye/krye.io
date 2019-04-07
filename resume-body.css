@@ -23,3 +23,12 @@ section.sub-position {
 	font-style: italic;
 	font-weight: normal;
 }
+
+section.sub-position > header {
+	margin-bottom: 0.5em;
+}
+
+section.sub-position > main {
+	font-size: 95%;
+	text-align: justify;
+}

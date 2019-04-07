@@ -81,3 +81,7 @@ section#skills > section > section#proficiency > header,
 section#skills > section > section#experience > header {
 	font-style: italic;
 }
+
+section#education span.location {
+	font-size: 85%;
+}
