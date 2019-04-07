@@ -5,6 +5,9 @@
 		<link rel="preconnect" href="//fonts.googleapis.com/">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		{% for stylesheet in layout.stylesheets %}
+		{{ stylesheet }}
+		{% endfor %}
 		{% for stylesheet in page.stylesheets %}
 		{{ stylesheet }}
 		{% endfor %}
