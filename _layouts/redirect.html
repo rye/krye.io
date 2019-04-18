@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+<link rel="canonical" href="{{ page.redirect_to }}"/>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="refresh" content="2;url={{ page.redirect_to }}" />
+</head>
+<body>
+<h1>Redirecting...</h1>
+<img src="https://media3.giphy.com/media/xjZtu4qi1biIo/giphy.gif" />
+
+<a href="{{ page.redirect_to }}">Click here if you are not redirected.<a>
+<script>setTimeout(() => {location='{{ page.redirect_to }}'}, 2000);</script>
+</body>
+</html>
