@@ -4,3 +4,9 @@ exclude:
 - 'README.md'
 - 'Gemfile'
 - 'Gemfile.lock'
+
+plugins:
+- jekyll-redirect-from
+
+whitelist:
+- jekyll-redirect-from
