@@ -72,7 +72,6 @@ section {
 	background-color: var(--section-bg-primary);
 	align-items: center;
 	justify-content: center;
-	padding: var(--section-padding);
 }
 
 #about .inner > p > b { color: var(--color-secondary-0-dark); }
