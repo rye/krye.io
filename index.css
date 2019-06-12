@@ -75,12 +75,6 @@ section {
 	padding: var(--section-padding);
 }
 
-@media screen and (min-width: 768px) {
-	section {
-		padding: var(--section-padding) calc((100vw - 768px) / 2 + var(--section-right-padding)) var(--section-padding) calc((100vw - 768px) / 2 + var(--section-left-padding));
-	}
-}
-
 #about .inner > p > b { color: var(--color-secondary-0-dark); }
 #projects .inner > p > b { color: var(--color-secondary-1-dark); }
 
