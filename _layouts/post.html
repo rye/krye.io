@@ -4,6 +4,13 @@ stylesheets:
 - '<link rel="stylesheet" href="/post.css">'
 ---
 
-<article class="post">
+<article class="post main">
+	<header>
+		<h1 class="title">{{ page.title }}</h1>
+		{% if page.subtitle %}
+		<h2 class="subtitle">{{ page.subtitle }}</h2>
+		{% endif %}
+	</header>
+
 	{{ content }}
 </article>
