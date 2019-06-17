@@ -17,11 +17,6 @@ body {
 	color: var(--color-2);
 }
 
-a,
-a:visited {
-	color: inherit;
-}
-
 header {
 	display: grid;
 	justify-content: center;

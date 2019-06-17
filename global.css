@@ -11,6 +11,11 @@ body {
 	--section-right-padding: var(--section-padding);
 }
 
+a,
+a:visited {
+	color: inherit;
+}
+
 @media screen and (min-width: 768px) {
 	body > * {
 		margin: auto;
