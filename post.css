@@ -4,6 +4,10 @@ article > header {
 	text-align: center;
 }
 
+article {
+	color: #373737;
+}
+
 article > header h1.title {
 	font-size: 200%;
 	margin: 0;
@@ -19,10 +23,34 @@ article p {
 	text-align: justify;
 }
 
-article p:first-of-type:first-letter {
+article > p:first-of-type:first-letter {
 	font-size: 200%;
 	font-weight: 900;
 	float: left;
 	padding-right: 0.25em;
 	padding-left: 0.2em;
+}
+
+article code {
+	font-family: 'Inconsolata', monospace;
+}
+
+article pre {
+	font-family: 'Inconsolata', monospace;
+}
+
+article blockquote.disclaimer {
+	border: 1px solid #6d0000;
+	padding: 1em;
+	background-color: #d75252;
+	border-radius: 3px;
+	color: #f0f0f0;
+}
+
+article div.notice:last-child {
+	margin: 0.5in;
+	padding: 1em;
+	border: 1px solid #373737;
+	border-radius: 3px;
+	background-color: #f0f0f0;
 }
