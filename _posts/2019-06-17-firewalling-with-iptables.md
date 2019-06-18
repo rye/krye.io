@@ -2,6 +2,8 @@
 layout: post
 title: "Firewalling with iptables"
 subtitle: Cheap, fast, and simple kernel-level Linux firewalls for fun and profit.
+excerpt: The netfilter Linux kernel-space APIs that have existed since the early 2010s are a really powerful way of filtering TCP/IP traffic.
+  `iptables` is one common userspace program that allows the interaction with and administration of the netfilter module.
 ---
 
 <blockquote class="disclaimer">
@@ -18,7 +20,7 @@ Not only can they manage every _packet_ of traffic, they do so at an incredible 
 # Intro to `iptables(8)`
 
 The reader may, at this point, be very well familiar with the `iptables` command.
-In its most basic form, `iptables` accepts a few key arguments, and can do a few arguments.
+In its most basic form, `iptables` accepts a few key arguments, and does a few key things.
 In `iptables`-land, operations are centered around the following objects: _chains_, _rules_, and _targets_.
 We will now explore each of these to a slight level of detail, however the manual page is unsurprisingly quite helpful here.
 
