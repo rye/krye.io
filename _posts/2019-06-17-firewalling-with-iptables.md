@@ -103,7 +103,7 @@ Jun 17 19:37:21 server kernel: IN=eth0 OUT= MAC=[...] SRC=1.2.3.4 DST=X.X.X.X LE
 
 Using the `LOG` target can be quite helpful for debugging, especially if you're being aggressive such as using a default-`DROP` policy.
 
-## REJECT vs DROP
+## `REJECT` vs `DROP`
 
 There seems to be a consensus that `DROP` is better if you want people not to even know that your server exists; any packets that reach the `DROP` target will not provoke a response by the server!
 But, sometimes you want to help your users understand what they are supposed to do.
@@ -133,7 +133,55 @@ From server.krye.io (X.X.X.X) icmp_seq=6 Destination Host Unreachable
 It's important to note that `DROP` imitates the behavior of pinging a _completely dead_ host, which doesn't help your end-users.
 If you want people to know that they are being filtered, it might be advised to instead use the `REJECT` target with an appropriate ICMP message.
 
-<div class="notice wip">
-	This post is still a work-in-progress.
-	<a href="mailto:kristofer.rye+blog-feedback@gmail.com">Shoot me an email</a> if you have suggestions!
-</div>
+## Faster bulk filtering with `ipset`
+
+If you, [like I do](https://github.com/rye/amalgam), have automated the process of blocking things, eventually you will end up with some very long `netfilter` chains.
+Diving into the Linux kernel source for `nft_do_chain`, (which is responsible for actually walking netfilter chains) it's pretty clear that each rule in the chain gets evaluated one-by-one; there's no magic hashing or anything going on to speed things up.
+This can be problematic if you have a lot of rules, especially multiple corresponding to the same network range.
+On one of my production servers, I had around 1000 rules blocking different IPs that belonged to AS4134 (CHINANET-BACKBONE), IPs which had been abusively scanning.
+(Side note: If you're curious, you can execute bulk queries against [whois.cymru.com](https://www.team-cymru.com/IP-ASN-mapping.html) if you want to see what an IP is.)
+
+One might be inclined to think, "should I sort my chains somehow?"
+Or, "can I reduce the work required to block this entire badly-behaving ISP?"
+Of course you can!
+
+The `ipset` framework also exists within the Linux kernel, and can store sets of individual IPs, networks, port numbers, MAC addresses, and the like.
+According to [their site](http://ipset.netfilter.org/),
+
+>If you want to
+>- **store multiple IP addresses or port numbers and match against the collection by iptables at one swoop;**
+>- dynamically update iptables rules against IP addresses or ports without performance penalty;
+>- express complex IP address and ports based rulesets with one single iptables rule and benefit from the speed of IP sets
+>
+>then ipset may be the proper tool for you.
+
+Sure enough, you can define `ipset`s quite easily after installing the CLI utility.
+For example, to block AS396507, after obtaining a list of CIDR prefixes, (e.g. `23.129.64.0/24`) all you need is:
+
+```
+ipset create AS396507-v4 hash:net
+```
+
+to create your set. (`hash:net` is appropriate for matching multiple ranges, but you may want to explore the other options too)
+To add your prefixes,
+
+```
+ipset add AS396507-v4 23.129.64.0/24
+```
+
+and then to finally put your rule in the chain,
+
+```
+iptables -A INPUT -m set --match-set AS396507-v4 src -j DROP
+```
+
+Now, any time that rule gets evaluated against traffic, the IP gets hashed and checked in O(1) time.
+These hashes are also tiny; as they fill up, they stay within a certain size in memory.
+If you want to block both IPv4 and IPv6 with one `ipset`, you might consider the `list:set` set type, which lets you make a set of sets, and then make an `IPv6` set.
+(`ipset` infers and pins a set to a specific IP version.)
+These are evaluated in O(n) time where n is the number of sets in your list, however.
+
+# Conclusion
+
+For some, `netfilter` is the firewall you never knew about, with `iptables` being its most simple manager.
+There are management tools out there (like `firewalld`) that add a layer of abstraction so you don't have to think in chains, but at the end of the day, `netfilter` is a very powerful
