@@ -23,14 +23,6 @@ article p {
 	text-align: justify;
 }
 
-article > p:first-of-type:first-letter {
-	font-size: 200%;
-	font-weight: 900;
-	float: left;
-	padding-right: 0.25em;
-	padding-left: 0.2em;
-}
-
 article code {
 	font-family: 'Inconsolata', monospace;
 }
@@ -38,6 +30,10 @@ article code {
 article pre {
 	font-family: 'Inconsolata', monospace;
 	overflow-x: scroll;
+}
+
+article blockquote {
+	font-style: italic;
 }
 
 article blockquote.disclaimer {
