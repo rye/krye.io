@@ -184,4 +184,4 @@ These are evaluated in O(n) time where n is the number of sets in your list, how
 # Conclusion
 
 For some, `netfilter` is the firewall you never knew about, with `iptables` being its most simple manager.
-There are management tools out there (like `firewalld`) that add a layer of abstraction so you don't have to think in chains, but at the end of the day, `netfilter` is a very powerful
+There are management tools out there (like `firewalld`) that add a layer of abstraction so you don't have to think in chains, but at the end of the day, `netfilter` is one of many powerful and arguably underused features of the Linux kernel.
