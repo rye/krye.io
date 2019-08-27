@@ -22,3 +22,9 @@ a:visited {
 		padding: var(--section-padding) calc((100vw - 768px) / 2 + var(--section-right-padding)) var(--section-padding) calc((100vw - 768px) / 2 + var(--section-left-padding));
 	}
 }
+
+@media screen and (max-width: 768px) {
+	body > * {
+		padding: var(--section-padding) var(--section-right-padding) var(--section-padding) var(--section-left-padding);
+	}
+}
