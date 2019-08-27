@@ -87,6 +87,11 @@ section:nth-of-type(2) {
 	background-color: var(--section-bg-primary);
 }
 
+.example > * {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 .example:hover {
 	box-shadow: var(--box-shadow-8);
 	transition: box-shadow 0.125s ease-in-out;
