@@ -29,6 +29,10 @@ section.sub-position > header {
 }
 
 section.sub-position > main {
-	font-size: 95%;
+	font-size: 90%;
 	text-align: justify;
+}
+
+section#body > section > section main {
+	font-size: 90%;
 }
