@@ -139,4 +139,8 @@ section main {
 	padding-left: 1em;
 }
 
+section#body > section main {
+	text-align: justify;
+}
+
 .sub-position > .nlt-style span.title { font-weight: bold; }
