@@ -64,6 +64,27 @@ title: 'Kristofer Rye'
 	</p>
 </section>
 
+{% if site.posts.size > 0 %}
+<section>
+	<h1>
+		Blog Posts
+	</h1>
+
+	<p>
+		This site is Jekyll-y, so it has a blog.
+		Here are some of the things I've written recently!
+	</p>
+
+	<ul>
+		{% for post in site.posts limit: 5 %}
+		<li>
+			<a href="{{ post.url }}">{{ post.title }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endif %}
+
 <section id="projects">
 	<h1>
 		Projects
@@ -117,24 +138,3 @@ title: 'Kristofer Rye'
 		</div>
 	</div>
 </section>
-
-{% if site.posts.size > 0 %}
-<section>
-	<h1>
-		Blog Posts
-	</h1>
-
-	<p>
-		This site is Jekyll-y, so it has a blog.
-		Here are some of the things I've written recently!
-	</p>
-
-	<ul>
-		{% for post in site.posts limit: 5 %}
-		<li>
-			<a href="{{ post.url }}">{{ post.title }}</a>
-		</li>
-		{% endfor %}
-	</ul>
-</section>
-{% endif %}
