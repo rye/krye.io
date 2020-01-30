@@ -20,6 +20,9 @@
 		<meta name="author" content="Kristofer Rye" />
 		<meta name="keywords" content="Kristofer,Rye,Kris,Programmer,Developer,Ruby,HTML,CSS,JavaScript,Sass,Rails,Private,Pilot,Cello,Cellist" />
 		<meta name="version" content="0.0.0" />
+		{% if page.title %}
+		<meta name="title" content="{{ page.title }}" />
+		{% endif %}
 
 		<link rel="icon" sizes="64x64" href="{{ site.baseurl }}/favicon-64px.png">
 		<link rel="icon" sizes="128x128" href="{{ site.baseurl }}/favicon-128px.png">
