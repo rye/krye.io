@@ -1,3 +1,12 @@
+:root {
+	--box-shadow-2: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+	--box-shadow-3: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12);
+	--box-shadow-4: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+	--box-shadow-6: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+	--box-shadow-8: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
+	--box-shadow-16: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+}
+
 article > header {
 	margin-top: 1in;
 	margin-bottom: 2em;
@@ -51,3 +60,69 @@ article div.notice:last-child {
 	border-radius: 3px;
 	background-color: #f0f0f0;
 }
+
+article figure.highlight > pre {
+	padding: 1em;
+	border-radius: 4px;
+	box-shadow: var(--box-shadow-2);
+	transition: box-shadow 0.125s ease-out;
+}
+
+article figure.highlight > pre pre {
+	margin: 0;
+}
+
+article figure.highlight > pre:hover {
+	box-shadow: var(--box-shadow-8);
+	transition: box-shadow 0.125s ease-out;
+}
+
+.highlight .code > pre {
+	font-size: 12pt;
+	line-height: 14pt;
+}
+
+.highlight td.gutter {
+	margin-right: 2pt;
+	user-select: none;
+}
+
+.highlight pre.lineno {
+	line-height: 14pt;
+	font-size: 8pt;
+}
+
+.highlight .hll { background-color: #ffffcc }
+.highlight .c { font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .cm { font-style: italic } /* Comment.Multiline */
+.highlight .c1 { font-style: italic } /* Comment.Single */
+.highlight .cs { font-style: italic } /* Comment.Special */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gh { font-weight: bold } /* Generic.Heading */
+.highlight .gp { font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { font-weight: bold } /* Generic.Subheading */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { font-weight: bold } /* Keyword.Namespace */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .s { font-style: italic } /* Literal.String */
+.highlight .nc { font-weight: bold } /* Name.Class */
+.highlight .ni { font-weight: bold } /* Name.Entity */
+.highlight .ne { font-weight: bold } /* Name.Exception */
+.highlight .nn { font-weight: bold } /* Name.Namespace */
+.highlight .nt { font-weight: bold } /* Name.Tag */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .sb { font-style: italic } /* Literal.String.Backtick */
+.highlight .sc { font-style: italic } /* Literal.String.Char */
+.highlight .sd { font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { font-style: italic } /* Literal.String.Double */
+.highlight .se { font-weight: bold; font-style: italic } /* Literal.String.Escape */
+.highlight .sh { font-style: italic } /* Literal.String.Heredoc */
+.highlight .si { font-weight: bold; font-style: italic } /* Literal.String.Interpol */
+.highlight .sx { font-style: italic } /* Literal.String.Other */
+.highlight .sr { font-style: italic } /* Literal.String.Regex */
+.highlight .s1 { font-style: italic } /* Literal.String.Single */
+.highlight .ss { font-style: italic } /* Literal.String.Symbol */
