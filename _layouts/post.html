@@ -15,5 +15,11 @@ stylesheets:
 		{% endif %}
 	</header>
 
+	<nav>
+		<a href="{{ site.url }}">krye.io</a>
+		<span class="separator"></span>
+		<a href="{{ page.url }}">{{ page.title }}</a>
+	</nav>
+
 	{{ content }}
 </article>
