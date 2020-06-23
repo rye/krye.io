@@ -85,6 +85,18 @@ title: 'Kristofer Rye'
 </section>
 {% endif %}
 
+<section id="activity">
+	<h1>Activity</h1>
+	<p>
+		What am I up to?
+		Check out my latest activity on GitHub:
+	</p>
+
+	<div id="gh-activity">
+		Shucks, looks like you don't have JS enabled, or my code is bad.  Oh well!
+	</div>
+</section>
+
 <section id="projects">
 	<h1>
 		Projects
@@ -138,3 +150,61 @@ title: 'Kristofer Rye'
 		</div>
 	</div>
 </section>
+
+
+<script>
+let ghActivityContainer = document.querySelector("div#gh-activity");
+
+function renderGhActivityContainer(container, data) {
+	if(container) {
+		container.innerHTML = "";
+	}
+
+	let dataInScope = data.filter(event => {
+		let eventDateRaw = event["created_at"];
+		let eventDate = Date.parse(eventDateRaw);
+		let difference = eventDate && (new Date() - eventDate);
+		return difference < 7 * 24 * 60 * 60 * 1000
+	});
+
+	let dataToRender = data.filter(event => {
+		let isCorrectType = event["type"] == "PushEvent" || event["type"] == "PullRequestEvent" || event["type"] == "IssueCommentEvent";
+		let isCorrectActor = event["actor"] && event["actor"]["login"] == "rye";
+		return isCorrectActor && isCorrectType
+	});
+
+	dataToRender.forEach(event => {
+		let eventContainer = document.createElement("div");
+		eventContainer.setAttribute("data-id", event["id"])
+		eventContainer.setAttribute("data-type", event["type"]);
+
+		switch(event["type"]) {
+			case 'PushEvent':
+				console.debug(event["payload"]["commits"]);
+				let commits = event["payload"] && event["payload"]["commits"];
+				let lastCommit = commits[commits.length - 1];
+				let otherCommits = (commits.length - 1);
+				eventContainer.innerHTML = `Pushed \"${lastCommit["message"].split("\n")[0]}\"` + (otherCommits > 0 ? (" and " + otherCommits + ` other commit${otherCommits > 1 ? 's' : ''}`) : "");
+				break;
+
+			case 'PullRequestEvent':
+				console.debug(event["payload"]);
+				break;
+
+			default:
+				console.warn("unimplemented event type", event["type"]);
+		}
+
+
+		container.appendChild(eventContainer);
+	});
+}
+
+if (ghActivityContainer) {
+	fetch("https://api.github.com/users/rye/events?per_page=100")
+		.then(response => response.json())
+		.then(data => renderGhActivityContainer(ghActivityContainer, data));
+} else {
+	console.warn("div#gh-activity not found on page, doing nothing");
+}
+</script>
